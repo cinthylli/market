@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
 import Historical from './Historical'
+import React, { useState } from 'react'
 import Menu from './Menu'
 import Products from './Products'
 
@@ -9,22 +9,27 @@ function Home() {
     const [search, setSearch] = useState("");
 
     return (
-        <main>
-            <Menu
-                category={category}
-                points={points}
-                search ={search}
-                setPoints={setPoints}
-                setCategory={setCategory}
-                setSearch={setSearch}
-            />
-            <Historical />
-            <Products
-                category={category}
-                search={search}
-                points={points}
-            />
-        </main>
+        <>
+            <main>
+                <Menu
+                    category={category}
+                    points={points}
+                    search={search}
+                    setPoints={setPoints}
+                    setCategory={setCategory}
+                    setSearch={setSearch}
+                />
+                <Products
+                    category={category}
+                    search={search}
+                    points={points}
+                />
+            </main>
+            <aside>
+
+                <Historical />
+            </aside>
+        </>
     )
 }
 

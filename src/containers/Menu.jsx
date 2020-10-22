@@ -60,7 +60,7 @@ export const MenuExampleSecondary = (props) => {
                     >
                     </Dropdown>
                 </Menu.Item>
-                <Menu.Item>
+                {/* <Menu.Item>
                     <Input
                         icon='search'
                         placeholder='Search...'
@@ -76,7 +76,7 @@ export const MenuExampleSecondary = (props) => {
                             }
                         }}
                     />
-                </Menu.Item>
+                </Menu.Item> */}
             </Menu.Menu>
         </Menu>
     )
