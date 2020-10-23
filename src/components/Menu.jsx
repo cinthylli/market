@@ -4,7 +4,7 @@ import Search from './Search'
 import _ from 'lodash'
 import CardGrid from '../container/CardGrid'
 import addPoints from '../hooks/AddPoints'
-export default class MenuExampleSizeMassive extends Component {
+export default class Menu extends Component {
   state = {
     activeItem: 'home',
     coins: 0,
@@ -65,7 +65,6 @@ export default class MenuExampleSizeMassive extends Component {
     })
   }
   render() {
-    const { activeItem } = this.state.activeItem;
     const { coins } = this.state.coins;
 
 

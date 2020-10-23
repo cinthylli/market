@@ -6,3 +6,12 @@ section {
    
 }
 
+h1 {
+    color: rgba(78, 4, 175, 0.89);
+}
+
+.card {
+    background-color: aqua;
+}
+
+

@@ -3,9 +3,12 @@ import { Card, Image } from 'semantic-ui-react'
 import ButtonAnimated from './Button'
 import Modal from './Modal'
 import { redeemPoints } from '../helpers/redeemPoints'
-const CardProduct = ({ product, category, pointsLeft, cost, img, id }) => (
+const CardProduct = ({ product, category, pointsLeft, cost, img, _id }) => (
 
-    <Card className='shadow-drop-2-center card'>
+    <Card
+        centered
+        color="violet"
+        className='shadow-drop-2-center card'>
         <Image src={img} wrapped ui={false} />
         <Card.Content>
             <Card.Header>{product}</Card.Header>
@@ -20,11 +23,11 @@ const CardProduct = ({ product, category, pointsLeft, cost, img, id }) => (
                         content="Your purchase was successfully approved "
                         buttomText="Thanks"
                         onActionClick={() => {
-                            redeemPoints({ productId: id });
+                            redeemPoints({ productId: _id });
                             console.log("redimiendo")
                         }}
                     /> :
-                    <ButtonAnimated amount={cost - pointsLeft} frontMessage='Need' backMessage='Bring them!' />
+                    <ButtonAnimated amount={cost - pointsLeft} frontMessage='Need' backMessage='Bring them!' _id />
             }
         </Card.Content>
         <Card.Content extra>

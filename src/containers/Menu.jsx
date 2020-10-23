@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Input, Menu, Dropdown } from 'semantic-ui-react'
+import React, { useState, useEffect } from 'react'
+import { Menu, Dropdown } from 'semantic-ui-react'
 import { optionAddCoins, optionsCategory } from '../constants/menuConstants';
 import { addPoints } from '../helpers/addPoints';
 import useFetchUser from '../Hooks/useFetchUser';
@@ -9,7 +9,11 @@ export const MenuExampleSecondary = (props) => {
     const [inputValue, setInputValue] = useState("");
     const { data: user } = useFetchUser(props.points);
     const { name, points: userPoints } = user;
-    props.setPoints(userPoints);
+    useEffect(() => {
+        props.setPoints(userPoints);
+        
+    }, [])
+    
 
     const handlePoints = async (e, { value }) => {
 
@@ -19,11 +23,11 @@ export const MenuExampleSecondary = (props) => {
 
     const handleCategory = (e, { value }) => {
         props.setCategory(optionsCategory[value - 1]?.text);
-        props.setSearch("");
+     
     }
 
     const handleInputValue = (e => {
-        setInputValue (e.target.value)
+        setInputValue(e.target.value)
     })
 
     return (
@@ -60,23 +64,6 @@ export const MenuExampleSecondary = (props) => {
                     >
                     </Dropdown>
                 </Menu.Item>
-                {/* <Menu.Item>
-                    <Input
-                        icon='search'
-                        placeholder='Search...'
-                        value={inputValue}
-                        onChange={handleInputValue}
-                        onKeyPress={(e) => {
-                            if (inputValue.trim().length > 2) {
-                                if (e.key === 'Enter') {
-                                    setInputValue(e.target.value);
-                                    props.setSearch(e.target.value);
-                                    setInputValue("");
-                                }
-                            }
-                        }}
-                    />
-                </Menu.Item> */}
             </Menu.Menu>
         </Menu>
     )

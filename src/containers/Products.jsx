@@ -4,7 +4,7 @@ import Card from '../components/Card'
 import useFetchProducts from '../Hooks/useFetchProducts';
 import './Products.css';
 
-function Products({ category , search , points }) {
+function Products({ category ,  points }) {
 
     const { data: products, loading } = useFetchProducts("");
     let categoryProducts;
@@ -15,9 +15,6 @@ function Products({ category , search , points }) {
         console.log(categoryProducts)
         
     }
-    if (search) {
-        categoryProducts = categoryProducts.filter(product =>( product.name === search || product.cost === search))
-    }
 
     return (
         <>
@@ -27,7 +24,7 @@ function Products({ category , search , points }) {
                 {
                     categoryProducts.map((product) => {
                         return (
-                            <Card
+                            <Card 
                                 category={product.category}
                                 product={product.name}
                                 pointsLeft={points}
